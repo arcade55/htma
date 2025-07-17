@@ -3,6 +3,7 @@ package htma
 
 import (
 	"fmt"
+	"html"
 	"io"
 	"strings"
 )
@@ -674,6 +675,91 @@ func (e Element) DataAttr(key, value string) Element {
 	return e.Attr("data-"+key, value)
 }
 
+// Datastar Directives
+func (e Element) DSAttr(value string) Element {
+	return e.Attr("data-attr", value)
+}
+
+func (e Element) DSBind(value string) Element {
+	return e.Attr("data-bind", value)
+}
+
+func (e Element) DSClass(value string) Element {
+	return e.Attr("data-class", value)
+}
+
+func (e Element) DSComputed(value string) Element {
+	return e.Attr("data-computed", value)
+}
+
+func (e Element) DSEffect(value string) Element {
+	return e.Attr("data-effect", value)
+}
+
+func (e Element) DSIgnore(value string) Element {
+	return e.Attr("data-ignore", value)
+}
+
+func (e Element) DSIgnoreMorph(value string) Element {
+	return e.Attr("data-ignore-morph", value)
+}
+
+func (e Element) DSIndicator(value string) Element {
+	return e.Attr("data-indicator", value)
+}
+
+func (e Element) DSJsonSignals(value string) Element {
+	return e.Attr("data-json-signals", value)
+}
+
+func (e Element) DSOnClick(value string) Element {
+	return e.Attr("data-on-click", value)
+}
+
+func (e Element) DSOnIntersect(value string) Element {
+	return e.Attr("data-on-intersect", value)
+}
+
+func (e Element) DSOnInterval(value string) Element {
+	return e.Attr("data-on-interval", value)
+}
+
+func (e Element) DSOnLoad(value string) Element {
+	return e.Attr("data-on-load", value)
+}
+
+func (e Element) DSOnSignalPatch(value string) Element {
+	return e.Attr("data-on-signal-patch", value)
+}
+
+func (e Element) DSOnSignalPatchFilter(value string) Element {
+	return e.Attr("data-on-signal-patch-filter", value)
+}
+
+func (e Element) DSPreserveAttr(value string) Element {
+	return e.Attr("data-preserve-attr", value)
+}
+
+func (e Element) DSRef(value string) Element {
+	return e.Attr("data-ref", value)
+}
+
+func (e Element) DSShow(value string) Element {
+	return e.Attr("data-show", value)
+}
+
+func (e Element) DSSignals(value string) Element {
+	return e.Attr("data-signals", value)
+}
+
+func (e Element) DSStyle(value string) Element {
+	return e.Attr("data-style", value)
+}
+
+func (e Element) DSText(value string) Element {
+	return e.Attr("data-text", value)
+}
+
 // Element-Specific Attribute Methods
 func (e Element) Accept(value string) Element {
 	return e.Attr("accept", value)
@@ -1050,5 +1136,5 @@ func appendClassInternal(existing, newClass string) string {
 }
 
 func escapeInternal(s string) string {
-	return strings.ReplaceAll(strings.ReplaceAll(s, "<", "<"), ">", ">")
+	return html.EscapeString(s)
 }
