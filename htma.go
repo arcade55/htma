@@ -512,7 +512,7 @@ func (e Element) Text(text string) Element {
 	return e
 }
 
-func (e Element) ID(id string) Element {
+func (e Element) IDAttr(id string) Element {
 	if strings.ContainsAny(id, " \t\n") {
 		panic("invalid ID: " + id)
 	}
@@ -542,7 +542,7 @@ func (e Element) Classes(classes ...string) Element {
 	return e
 }
 
-func (e Element) Style(key, value string) Element {
+func (e Element) StyleAttr(key, value string) Element {
 	current := e.attrs["style"]
 	if current != "" {
 		current += "; "
@@ -557,95 +557,95 @@ func (e Element) Attr(key, value string) Element {
 }
 
 // Global Attribute Methods
-func (e Element) AccessKey(key string) Element {
+func (e Element) AccessKeyAttr(key string) Element {
 	return e.Attr("accesskey", key)
 }
 
-func (e Element) Autocapitalize(value string) Element {
+func (e Element) AutocapitalizeAttr(value string) Element {
 	return e.Attr("autocapitalize", value)
 }
 
-func (e Element) Autofocus() Element {
+func (e Element) AutofocusAttr() Element {
 	return e.Attr("autofocus", "")
 }
 
-func (e Element) ContentEditable(value string) Element {
+func (e Element) ContentEditableAttr(value string) Element {
 	return e.Attr("contenteditable", value)
 }
 
-func (e Element) Dir(value string) Element {
+func (e Element) DirAttr(value string) Element {
 	return e.Attr("dir", value)
 }
 
-func (e Element) Draggable(value string) Element {
+func (e Element) DraggableAttr(value string) Element {
 	return e.Attr("draggable", value)
 }
 
-func (e Element) EnterKeyHint(value string) Element {
+func (e Element) EnterKeyHintAttr(value string) Element {
 	return e.Attr("enterkeyhint", value)
 }
 
-func (e Element) Hidden() Element {
+func (e Element) HiddenAttr() Element {
 	return e.Attr("hidden", "")
 }
 
-func (e Element) Inert() Element {
+func (e Element) InertAttr() Element {
 	return e.Attr("inert", "")
 }
 
-func (e Element) InputMode(value string) Element {
+func (e Element) InputModeAttr(value string) Element {
 	return e.Attr("inputmode", value)
 }
 
-func (e Element) Is(value string) Element {
+func (e Element) IsAttr(value string) Element {
 	return e.Attr("is", value)
 }
 
-func (e Element) ItemID(value string) Element {
+func (e Element) ItemIDAttr(value string) Element {
 	return e.Attr("itemid", value)
 }
 
-func (e Element) ItemProp(value string) Element {
+func (e Element) ItemPropAttr(value string) Element {
 	return e.Attr("itemprop", value)
 }
 
-func (e Element) ItemRef(value string) Element {
+func (e Element) ItemRefAttr(value string) Element {
 	return e.Attr("itemref", value)
 }
 
-func (e Element) ItemScope() Element {
+func (e Element) ItemScopeAttr() Element {
 	return e.Attr("itemscope", "")
 }
 
-func (e Element) ItemType(value string) Element {
+func (e Element) ItemTypeAttr(value string) Element {
 	return e.Attr("itemtype", value)
 }
 
-func (e Element) Lang(value string) Element {
+func (e Element) LangAttr(value string) Element {
 	return e.Attr("lang", value)
 }
 
-func (e Element) Nonce(value string) Element {
+func (e Element) NonceAttr(value string) Element {
 	return e.Attr("nonce", value)
 }
 
-func (e Element) Part(value string) Element {
+func (e Element) PartAttr(value string) Element {
 	return e.Attr("part", value)
 }
 
-func (e Element) Popover(value string) Element {
+func (e Element) PopoverAttr(value string) Element {
 	return e.Attr("popover", value)
 }
 
-func (e Element) Slot(value string) Element {
+func (e Element) SlotAttr(value string) Element {
 	return e.Attr("slot", value)
 }
 
-func (e Element) SpellCheck(value string) Element {
+func (e Element) SpellCheckAttr(value string) Element {
 	return e.Attr("spellcheck", value)
 }
 
-func (e Element) TabIndex(index int) Element {
+func (e Element) TabIndexAttr(index int) Element {
 	return e.Attr("tabindex", fmt.Sprint(index))
 }
 
@@ -653,20 +653,20 @@ func (e Element) TitleAttr(value string) Element {
 	return e.Attr("title", value)
 }
 
-func (e Element) Translate(value string) Element {
+func (e Element) TranslateAttr(value string) Element {
 	return e.Attr("translate", value)
 }
 
 // Aria Attributes
-func (e Element) AriaLabel(label string) Element {
+func (e Element) AriaLabelAttr(label string) Element {
 	return e.Attr("aria-label", label)
 }
 
-func (e Element) AriaHidden(value string) Element {
+func (e Element) AriaHiddenAttr(value string) Element {
 	return e.Attr("aria-hidden", value)
 }
 
-func (e Element) AriaRole(role string) Element {
+func (e Element) AriaRoleAttr(role string) Element {
 	return e.Attr("role", role)
 }
 
@@ -676,392 +676,392 @@ func (e Element) DataAttr(key, value string) Element {
 }
 
 // Datastar Directives
-func (e Element) DSAttr(value string) Element {
+func (e Element) DataAttrAttr(value string) Element {
 	return e.Attr("data-attr", value)
 }
 
-func (e Element) DSBind(value string) Element {
+func (e Element) DataBindAttr(value string) Element {
 	return e.Attr("data-bind", value)
 }
 
-func (e Element) DSClass(value string) Element {
+func (e Element) DataClassAttr(value string) Element {
 	return e.Attr("data-class", value)
 }
 
-func (e Element) DSComputed(value string) Element {
+func (e Element) DataComputedAttr(value string) Element {
 	return e.Attr("data-computed", value)
 }
 
-func (e Element) DSEffect(value string) Element {
+func (e Element) DataEffectAttr(value string) Element {
 	return e.Attr("data-effect", value)
 }
 
-func (e Element) DSIgnore(value string) Element {
+func (e Element) DataIgnoreAttr(value string) Element {
 	return e.Attr("data-ignore", value)
 }
 
-func (e Element) DSIgnoreMorph(value string) Element {
+func (e Element) DataIgnoreMorphAttr(value string) Element {
 	return e.Attr("data-ignore-morph", value)
 }
 
-func (e Element) DSIndicator(value string) Element {
+func (e Element) DataIndicatorAttr(value string) Element {
 	return e.Attr("data-indicator", value)
 }
 
-func (e Element) DSJsonSignals(value string) Element {
+func (e Element) DataJsonSignalsAttr(value string) Element {
 	return e.Attr("data-json-signals", value)
 }
 
-func (e Element) DSOnClick(value string) Element {
+func (e Element) DataOnClickAttr(value string) Element {
 	return e.Attr("data-on-click", value)
 }
 
-func (e Element) DSOnIntersect(value string) Element {
+func (e Element) DataOnIntersectAttr(value string) Element {
 	return e.Attr("data-on-intersect", value)
 }
 
-func (e Element) DSOnInterval(value string) Element {
+func (e Element) DataOnIntervalAttr(value string) Element {
 	return e.Attr("data-on-interval", value)
 }
 
-func (e Element) DSOnLoad(value string) Element {
+func (e Element) DataOnLoadAttr(value string) Element {
 	return e.Attr("data-on-load", value)
 }
 
-func (e Element) DSOnSignalPatch(value string) Element {
+func (e Element) DataOnSignalPatchAttr(value string) Element {
 	return e.Attr("data-on-signal-patch", value)
 }
 
-func (e Element) DSOnSignalPatchFilter(value string) Element {
+func (e Element) DataOnSignalPatchFilterAttr(value string) Element {
 	return e.Attr("data-on-signal-patch-filter", value)
 }
 
-func (e Element) DSPreserveAttr(value string) Element {
+func (e Element) DataPreserveAttrAttr(value string) Element {
 	return e.Attr("data-preserve-attr", value)
 }
 
-func (e Element) DSRef(value string) Element {
+func (e Element) DataRefAttr(value string) Element {
 	return e.Attr("data-ref", value)
 }
 
-func (e Element) DSShow(value string) Element {
+func (e Element) DataShowAttr(value string) Element {
 	return e.Attr("data-show", value)
 }
 
-func (e Element) DSSignals(value string) Element {
+func (e Element) DataSignalsAttr(value string) Element {
 	return e.Attr("data-signals", value)
 }
 
-func (e Element) DSStyle(value string) Element {
+func (e Element) DataStyleAttr(value string) Element {
 	return e.Attr("data-style", value)
 }
 
-func (e Element) DSText(value string) Element {
+func (e Element) DataTextAttr(value string) Element {
 	return e.Attr("data-text", value)
 }
 
 // Element-Specific Attribute Methods
-func (e Element) Accept(value string) Element {
+func (e Element) AcceptAttr(value string) Element {
 	return e.Attr("accept", value)
 }
 
-func (e Element) AcceptCharset(value string) Element {
+func (e Element) AcceptCharsetAttr(value string) Element {
 	return e.Attr("accept-charset", value)
 }
 
-func (e Element) Action(action string) Element {
+func (e Element) ActionAttr(action string) Element {
 	return e.Attr("action", action)
 }
 
-func (e Element) Alt(alt string) Element {
+func (e Element) AltAttr(alt string) Element {
 	return e.Attr("alt", alt)
 }
 
-func (e Element) Async() Element {
+func (e Element) AsyncAttr() Element {
 	return e.Attr("async", "")
 }
 
-func (e Element) AutoPlay() Element {
+func (e Element) AutoPlayAttr() Element {
 	return e.Attr("autoplay", "")
 }
 
-func (e Element) Charset(value string) Element {
+func (e Element) CharsetAttr(value string) Element {
 	return e.Attr("charset", value)
 }
 
-func (e Element) Checked() Element {
+func (e Element) CheckedAttr() Element {
 	return e.Attr("checked", "")
 }
 
-func (e Element) Cite(value string) Element {
+func (e Element) CiteAttr(value string) Element {
 	return e.Attr("cite", value)
 }
 
-func (e Element) Cols(cols int) Element {
+func (e Element) ColsAttr(cols int) Element {
 	return e.Attr("cols", fmt.Sprint(cols))
 }
 
-func (e Element) ColSpan(span int) Element {
+func (e Element) ColSpanAttr(span int) Element {
 	return e.Attr("colspan", fmt.Sprint(span))
 }
 
-func (e Element) Controls() Element {
+func (e Element) ControlsAttr() Element {
 	return e.Attr("controls", "")
 }
 
-func (e Element) Coords(value string) Element {
+func (e Element) CoordsAttr(value string) Element {
 	return e.Attr("coords", value)
 }
 
-func (e Element) CrossOrigin(value string) Element {
+func (e Element) CrossOriginAttr(value string) Element {
 	return e.Attr("crossorigin", value)
 }
 
-func (e Element) DateTime(value string) Element {
+func (e Element) DateTimeAttr(value string) Element {
 	return e.Attr("datetime", value)
 }
 
-func (e Element) Default() Element {
+func (e Element) DefaultAttr() Element {
 	return e.Attr("default", "")
 }
 
-func (e Element) Defer() Element {
+func (e Element) DeferAttr() Element {
 	return e.Attr("defer", "")
 }
 
-func (e Element) Disabled() Element {
+func (e Element) DisabledAttr() Element {
 	return e.Attr("disabled", "")
 }
 
-func (e Element) Download(value string) Element {
+func (e Element) DownloadAttr(value string) Element {
 	return e.Attr("download", value)
 }
 
-func (e Element) EncType(value string) Element {
+func (e Element) EncTypeAttr(value string) Element {
 	return e.Attr("enctype", value)
 }
 
-func (e Element) For(value string) Element {
+func (e Element) ForAttr(value string) Element {
 	return e.Attr("for", value)
 }
 
-func (e Element) Form(value string) Element {
+func (e Element) FormAttr(value string) Element {
 	return e.Attr("form", value)
 }
 
-func (e Element) FormAction(value string) Element {
+func (e Element) FormActionAttr(value string) Element {
 	return e.Attr("formaction", value)
 }
 
-func (e Element) FormEncType(value string) Element {
+func (e Element) FormEncTypeAttr(value string) Element {
 	return e.Attr("formenctype", value)
 }
 
-func (e Element) FormMethod(value string) Element {
+func (e Element) FormMethodAttr(value string) Element {
 	return e.Attr("formmethod", value)
 }
 
-func (e Element) FormNoValidate() Element {
+func (e Element) FormNoValidateAttr() Element {
 	return e.Attr("formnovalidate", "")
 }
 
-func (e Element) FormTarget(value string) Element {
+func (e Element) FormTargetAttr(value string) Element {
 	return e.Attr("formtarget", value)
 }
 
-func (e Element) Height(height int) Element {
+func (e Element) HeightAttr(height int) Element {
 	return e.Attr("height", fmt.Sprint(height))
 }
 
-func (e Element) Href(href string) Element {
+func (e Element) HrefAttr(href string) Element {
 	return e.Attr("href", href)
 }
 
-func (e Element) HrefLang(value string) Element {
+func (e Element) HrefLangAttr(value string) Element {
 	return e.Attr("hreflang", value)
 }
 
-func (e Element) HttpEquiv(value string) Element {
+func (e Element) HttpEquivAttr(value string) Element {
 	return e.Attr("http-equiv", value)
 }
 
-func (e Element) Integrity(value string) Element {
+func (e Element) IntegrityAttr(value string) Element {
 	return e.Attr("integrity", value)
 }
 
-func (e Element) Kind(value string) Element {
+func (e Element) KindAttr(value string) Element {
 	return e.Attr("kind", value)
 }
 
-func (e Element) Label(value string) Element {
+func (e Element) LabelAttr(value string) Element {
 	return e.Attr("label", value)
 }
 
-func (e Element) List(value string) Element {
+func (e Element) ListAttr(value string) Element {
 	return e.Attr("list", value)
 }
 
-func (e Element) Loop() Element {
+func (e Element) LoopAttr() Element {
 	return e.Attr("loop", "")
 }
 
-func (e Element) Max(value string) Element {
+func (e Element) MaxAttr(value string) Element {
 	return e.Attr("max", value)
 }
 
-func (e Element) MaxLength(length int) Element {
+func (e Element) MaxLengthAttr(length int) Element {
 	return e.Attr("maxlength", fmt.Sprint(length))
 }
 
-func (e Element) Media(value string) Element {
+func (e Element) MediaAttr(value string) Element {
 	return e.Attr("media", value)
 }
 
-func (e Element) Method(value string) Element {
+func (e Element) MethodAttr(value string) Element {
 	return e.Attr("method", value)
 }
 
-func (e Element) Min(value string) Element {
+func (e Element) MinAttr(value string) Element {
 	return e.Attr("min", value)
 }
 
-func (e Element) MinLength(length int) Element {
+func (e Element) MinLengthAttr(length int) Element {
 	return e.Attr("minlength", fmt.Sprint(length))
 }
 
-func (e Element) Multiple() Element {
+func (e Element) MultipleAttr() Element {
 	return e.Attr("multiple", "")
 }
 
-func (e Element) Muted() Element {
+func (e Element) MutedAttr() Element {
 	return e.Attr("muted", "")
 }
 
-func (e Element) Name(value string) Element {
+func (e Element) NameAttr(value string) Element {
 	return e.Attr("name", value)
 }
 
-func (e Element) NoValidate() Element {
+func (e Element) NoValidateAttr() Element {
 	return e.Attr("novalidate", "")
 }
 
-func (e Element) Open() Element {
+func (e Element) OpenAttr() Element {
 	return e.Attr("open", "")
 }
 
-func (e Element) Pattern(value string) Element {
+func (e Element) PatternAttr(value string) Element {
 	return e.Attr("pattern", value)
 }
 
-func (e Element) Placeholder(value string) Element {
+func (e Element) PlaceholderAttr(value string) Element {
 	return e.Attr("placeholder", value)
 }
 
-func (e Element) Poster(value string) Element {
+func (e Element) PosterAttr(value string) Element {
 	return e.Attr("poster", value)
 }
 
-func (e Element) Preload(value string) Element {
+func (e Element) PreloadAttr(value string) Element {
 	return e.Attr("preload", value)
 }
 
-func (e Element) ReadOnly() Element {
+func (e Element) ReadOnlyAttr() Element {
 	return e.Attr("readonly", "")
 }
 
-func (e Element) Rel(value string) Element {
+func (e Element) RelAttr(value string) Element {
 	return e.Attr("rel", value)
 }
 
-func (e Element) Required() Element {
+func (e Element) RequiredAttr() Element {
 	return e.Attr("required", "")
 }
 
-func (e Element) Reversed() Element {
+func (e Element) ReversedAttr() Element {
 	return e.Attr("reversed", "")
 }
 
-func (e Element) Rows(rows int) Element {
+func (e Element) RowsAttr(rows int) Element {
 	return e.Attr("rows", fmt.Sprint(rows))
 }
 
-func (e Element) RowSpan(span int) Element {
+func (e Element) RowSpanAttr(span int) Element {
 	return e.Attr("rowspan", fmt.Sprint(span))
 }
 
-func (e Element) Sandbox(value string) Element {
+func (e Element) SandboxAttr(value string) Element {
 	return e.Attr("sandbox", value)
 }
 
-func (e Element) Scope(value string) Element {
+func (e Element) ScopeAttr(value string) Element {
 	return e.Attr("scope", value)
 }
 
-func (e Element) Selected() Element {
+func (e Element) SelectedAttr() Element {
 	return e.Attr("selected", "")
 }
 
-func (e Element) Shape(value string) Element {
+func (e Element) ShapeAttr(value string) Element {
 	return e.Attr("shape", value)
 }
 
-func (e Element) Size(size int) Element {
+func (e Element) SizeAttr(size int) Element {
 	return e.Attr("size", fmt.Sprint(size))
 }
 
-func (e Element) Sizes(value string) Element {
+func (e Element) SizesAttr(value string) Element {
 	return e.Attr("sizes", value)
 }
 
-func (e Element) Span(span int) Element {
+func (e Element) SpanAttr(span int) Element {
 	return e.Attr("span", fmt.Sprint(span))
 }
 
-func (e Element) Src(src string) Element {
+func (e Element) SrcAttr(src string) Element {
 	return e.Attr("src", src)
 }
 
-func (e Element) SrcDoc(value string) Element {
+func (e Element) SrcDocAttr(value string) Element {
 	return e.Attr("srcdoc", value)
 }
 
-func (e Element) SrcLang(value string) Element {
+func (e Element) SrcLangAttr(value string) Element {
 	return e.Attr("srclang", value)
 }
 
-func (e Element) SrcSet(value string) Element {
+func (e Element) SrcSetAttr(value string) Element {
 	return e.Attr("srcset", value)
 }
 
-func (e Element) Start(start int) Element {
+func (e Element) StartAttr(start int) Element {
 	return e.Attr("start", fmt.Sprint(start))
 }
 
-func (e Element) Step(value string) Element {
+func (e Element) StepAttr(value string) Element {
 	return e.Attr("step", value)
 }
 
-func (e Element) Target(value string) Element {
+func (e Element) TargetAttr(value string) Element {
 	return e.Attr("target", value)
 }
 
-func (e Element) Type(typ string) Element {
+func (e Element) TypeAttr(typ string) Element {
 	return e.Attr("type", typ)
 }
 
-func (e Element) UseMap(value string) Element {
+func (e Element) UseMapAttr(value string) Element {
 	return e.Attr("usemap", value)
 }
 
-func (e Element) Value(val string) Element {
+func (e Element) ValueAttr(val string) Element {
 	return e.Attr("value", val)
 }
 
-func (e Element) Width(width int) Element {
+func (e Element) WidthAttr(width int) Element {
 	return e.Attr("width", fmt.Sprint(width))
 }
 
-func (e Element) Wrap(value string) Element {
+func (e Element) WrapAttr(value string) Element {
 	return e.Attr("wrap", value)
 }
 
