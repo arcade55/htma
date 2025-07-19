@@ -14,6 +14,50 @@ type Renderable interface {
 	RenderStream(w io.Writer) error
 }
 
+// TextContent represents an escaped plain text node.
+type TextContent struct {
+	Content string
+}
+
+// Render returns the escaped text content.
+func (t TextContent) Render() string {
+	return html.EscapeString(t.Content)
+}
+
+// RenderStream writes the escaped text content to a writer.
+func (t TextContent) RenderStream(w io.Writer) error {
+	_, err := io.WriteString(w, html.EscapeString(t.Content))
+	return err
+}
+
+// Content creates an escaped text node that can be a child of another element.
+// This is used for creating mixed-content elements (text and other tags).
+func Content(content string) TextContent {
+	return TextContent{Content: content}
+}
+
+// Raw represents an unescaped HTML string.
+type Raw struct {
+	Content string
+}
+
+// Render returns the unescaped content as is.
+func (r Raw) Render() string {
+	return r.Content
+}
+
+// RenderStream writes the unescaped content to a writer.
+func (r Raw) RenderStream(w io.Writer) error {
+	_, err := io.WriteString(w, r.Content)
+	return err
+}
+
+// RawContent creates a raw HTML node that will not be escaped.
+// Use with caution, as this can open you up to XSS vulnerabilities if used with untrusted content.
+func RawContent(content string) Raw {
+	return Raw{Content: content}
+}
+
 // Attributable defines types that can set attributes.
 type Attributable interface {
 	Attr(key, value string) Element
