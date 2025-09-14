@@ -5,6 +5,9 @@ package htma
 func FlightCard() Element {
 	return newElement("flight-card", false)
 }
+func SearchCard() Element {
+	return newElement("search-card", false)
+}
 
 // FlightCard-Specific Attribute Methods
 func (e Element) AirlineLogoTextAttr(value string) Element {
