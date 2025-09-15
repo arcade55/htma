@@ -8,6 +8,12 @@ func FlightCard() Element {
 func SearchCard() Element {
 	return newElement("search-card", false)
 }
+func BliptaFooter() Element {
+	return newElement("blipta-footer", false)
+}
+func BliptaHeader() Element {
+	return newElement("blipta-header", false)
+}
 
 // FlightCard-Specific Attribute Methods
 func (e Element) AirlineLogoTextAttr(value string) Element {
