@@ -8,6 +8,9 @@ func FlightCard() Element {
 func SearchCard() Element {
 	return newElement("search-card", false)
 }
+func ResultsCard() Element {
+	return newElement("results-card", false)
+}
 func BliptaFooter() Element {
 	return newElement("blipta-footer", false)
 }
