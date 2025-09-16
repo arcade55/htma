@@ -5,6 +5,18 @@ package htma
 func FlightCard() Element {
 	return newElement("flight-card", false)
 }
+func SearchCard() Element {
+	return newElement("search-card", false)
+}
+func ResultsCard() Element {
+	return newElement("results-card", false)
+}
+func BliptaFooter() Element {
+	return newElement("blipta-footer", false)
+}
+func BliptaHeader() Element {
+	return newElement("blipta-header", false)
+}
 
 // FlightCard-Specific Attribute Methods
 func (e Element) AirlineLogoTextAttr(value string) Element {
@@ -55,10 +67,17 @@ func (e Element) StatusTextAttr(value string) Element {
 	return e.Attr("status-text", value)
 }
 
+func (e Element) ScheduledOut(value string) Element {
+	return e.Attr("scheduled-out", value)
+}
 func (e Element) StatusClassAttr(value string) Element {
 	return e.Attr("status-class", value)
 }
 
 func (e Element) ArrivalTimeAttr(value string) Element {
 	return e.Attr("arrival-time", value)
+}
+
+func (e Element) IdentAttr(value string) Element {
+	return e.Attr("ident", value)
 }
